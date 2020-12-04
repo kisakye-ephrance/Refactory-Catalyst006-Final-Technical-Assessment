@@ -1,0 +1,79 @@
+doctype 
+html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  link(rel='stylesheet', href='css/register.css')
+  title Register Patient
+body
+.container
+    .main
+      .header
+      .logo
+        img(src='images/form-header-image.png', alt='logo', height='85px', width='900px')
+
+    
+        form(name='registrationform'  method='POST' action='/registerpatient' onsubmit='return access_registrationform()')
+          h3
+            | Ministry Of Health
+          h1
+            |  COVID-19 (CORONA VIRUS)
+          h3
+            | Virus - Test Registration Form
+          .form-group
+            .form-row
+              .col-sm-4
+                label(for='sur') Surname
+                input#sur.form-control(type='text', placeholder='', name='surname')
+              .col-sm-4
+                label(for='given') Given
+                input#given.form-control(type='text', placeholder='', name='givenname')
+
+          .form-group
+            .form-row
+              .col-sm-4
+                label(for='dob') DateOfBirth
+                input#dob.form-control(type='text', placeholder='', name='birthdate', onfocus='(this.type="date")', min='12/04/2020' max='12/04/1870')
+              .col-sm-4
+                label(for='residence') Place Of Residence
+                input#residence.form-control(type='text', placeholder='', name='residenceplace')
+
+          .form-group
+            .form-row
+              .col-sm-4
+                label(for='occ') Occupation
+                input#occ.form-control(type='text', placeholder='', name='job')
+              .col-sm-4
+                label(for='nationality') Nationality
+                input#nationality.form-control(type='text', placeholder='', name='country')
+              
+          fieldset.form-group
+            .row
+              legend.col-form-label.col-sm-2.pt-0 Gender
+              .col-sm-10#gender
+              .custom-control.custom-radio.custom-control-inline
+                  input#female.custom-control-input(type='radio', name='gender')
+                  label.custom-control-label(for='female') Female
+              .custom-control.custom-radio.custom-control-inline
+                  input#male.custom-control-input(type='radio', name='gender', checked='checked')
+                  label.custom-control-label(for='male') Male
+
+          fieldset.form-group
+            .row
+              legend.col-form-label.col-sm-2.pt-0 Category
+              .col-sm-2#category
+              select.form-control.form-control-sm
+                  option Returnee
+                  option Contact
+                  option Alert
+                  option Volunteer
+                  option(selected='selected') ---Select Category--
+
+          
+          button.btn.btn-primary(type='submit',  value='Submit' ) Register
+
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+script(src='validations/registerval.js')
